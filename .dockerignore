@@ -1,0 +1,9 @@
+.git
+.github
+node_modules
+*.md
+Dockerfile
+docker-compose.yml
+.dockerignore
+.gitignore
+scratchpad

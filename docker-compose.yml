@@ -1,0 +1,10 @@
+# Br-di — bequemer Start via Docker Compose
+# Nutzung:  docker compose up -d   ->  http://localhost:8080
+services:
+  brdi:
+    build: .
+    image: brdi:latest
+    container_name: brdi
+    ports:
+      - "8080:80"
+    restart: unless-stopped

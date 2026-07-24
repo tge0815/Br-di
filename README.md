@@ -15,6 +15,16 @@ losspielen.
   python3 -m http.server 8000
   # dann http://localhost:8000 öffnen
   ```
+- **Mit Docker** 🐳 (portabel auf jedem Rechner/Server, schlanker nginx-Container):
+  ```bash
+  # Variante A: Docker Compose (empfohlen)
+  docker compose up -d          # -> http://localhost:8080
+
+  # Variante B: pur mit Docker
+  docker build -t brdi .
+  docker run -d -p 8080:80 --name brdi brdi
+  ```
+  Stoppen: `docker compose down` bzw. `docker rm -f brdi`.
 
 ## Modi
 
