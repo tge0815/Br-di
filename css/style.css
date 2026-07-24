@@ -54,6 +54,7 @@ body {
 .btn-big { padding: 18px; font-size: 22px; }
 .btn-small { font-size: 14px; padding: 10px 16px; background: linear-gradient(180deg, #efe7ff, #cdbff0); box-shadow: 0 4px 0 #9a86c8; color: #2B2438; }
 .btn-accent { background: linear-gradient(180deg, #7EF0A8, var(--green)); box-shadow: 0 5px 0 #1F9E4E; color: #10331f; }
+.btn-3d { text-decoration: none; text-align: center; background: linear-gradient(180deg, #C9B0FF, #8A6BE0); box-shadow: 0 5px 0 #6A4BC0, 0 8px 16px rgba(0,0,0,0.2); color: #fff; width: min(360px, 86vw); }
 
 .menu-foot { display: flex; gap: 10px; margin-top: 8px; }
 

@@ -26,7 +26,17 @@ losspielen.
   ```
   Stoppen: `docker compose down` bzw. `docker rm -f brdi`.
 
-## Modi
+## 🎮 3D-Version (neu!)
+
+Zusätzlich zur 2D-Version gibt es einen **echten 3D-Platformer** mit freier
+Bewegung, Third-Person-Kamera und der gleichen bunten Graswelt in 3D:
+
+- Öffnen: **`three/index.html`** (oder im Hauptmenü „In 3D spielen")
+- Steuerung: **WASD/Pfeile** laufen, **Leertaste** springen, **Maus ziehen** / **Q E** Kamera, **Mausrad** Zoom
+- 3 Level mit schwebenden Inseln, Sprungpilzen, beweglichen Plattformen, Edelsteinen und Ziel-Portal
+- Gebaut mit **Three.js** (lokal eingebunden, läuft offline)
+
+## Modi (2D)
 
 | Modus | Beschreibung |
 |-------|--------------|
@@ -82,7 +92,15 @@ js/
   audio.js            # Prozedurale WebAudio-SFX
   engine.js           # Fixed-Timestep Game-Loop
   main.js             # Verdrahtung, Spiellogik, Zustandsmaschine
-GAME_DESIGN.md        # Vollständige Design-Spezifikation
+three/                # 3D-Version (Three.js)
+  index.html          # Einstiegspunkt 3D
+  css/style3d.css
+  js/
+    three.min.js      # Three.js (lokal, r128)
+    levels3d.js       # 3D-Level-Daten
+    game3d.js         # 3D-Engine: Szene, Charakter, Physik, Kamera, UI
+Dockerfile            # nginx-Container (2D + 3D)
+GAME_DESIGN.md        # Vollständige Design-Spezifikation (2D)
 ```
 
 ## Design-Dokument

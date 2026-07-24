@@ -38,6 +38,11 @@
     modes.appendChild(bCamp); modes.appendChild(bDaily); modes.appendChild(bEndless);
     this.menu.appendChild(modes);
 
+    // Link zur 3D-Version
+    var d3 = el('a', 'btn btn-3d', '🎮  In 3D spielen (neu!)');
+    d3.href = 'three/index.html';
+    this.menu.appendChild(d3);
+
     var foot = el('div', 'menu-foot');
     this.muteBtn = el('button', 'btn btn-small', '🔊 Ton an');
     this.muteBtn.onclick = function () { self.onAction('toggleMute'); };

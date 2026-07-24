@@ -1,0 +1,78 @@
+/* Br-di 3D — style3d.css */
+:root {
+  --accent: #FFC94D; --panel: rgba(43,36,56,0.82); --pink: #FF5E7E; --green: #3EE07A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #4EA9FF; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; touch-action: none;
+}
+#c3d { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+#ui3d { position: fixed; inset: 0; pointer-events: none; }
+#ui3d .screen3d, #ui3d .hud3d, #ui3d .jump3d, #ui3d button, #ui3d a { pointer-events: auto; }
+
+/* HUD */
+.hud3d { position: absolute; top: 12px; left: 0; right: 0; display: flex; gap: 10px; justify-content: center; }
+.hud-pill {
+  background: var(--panel); color: #fff; font-weight: 700; font-size: 15px;
+  padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+}
+.hint3d {
+  position: absolute; top: 64px; left: 50%; transform: translateX(-50%);
+  background: rgba(43,36,56,0.7); color: #fff; padding: 10px 20px; border-radius: 12px;
+  font-size: 15px; font-weight: 600; text-align: center; max-width: 90vw;
+}
+
+/* Touch-Jump */
+.jump3d {
+  position: absolute; right: 26px; bottom: calc(30px + env(safe-area-inset-bottom));
+  width: 88px; height: 88px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.35);
+  color: #fff; font-size: 38px; display: flex; align-items: center; justify-content: center;
+}
+.jump3d.active { background: rgba(255,201,77,0.45); transform: scale(0.92); }
+
+/* Screens */
+.screen3d {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center;
+}
+.overlay3d { background: rgba(43,36,56,0.5); backdrop-filter: blur(4px); }
+.title3d {
+  font-size: clamp(44px, 11vw, 96px); font-weight: 900; color: var(--pink);
+  text-shadow: 0 4px 0 #3A2233, 0 8px 22px rgba(0,0,0,0.3); letter-spacing: 2px;
+}
+.subtitle3d { color: #fff; font-weight: 600; font-size: clamp(14px,3.5vw,19px); text-shadow: 0 2px 6px rgba(0,0,0,0.35); margin-bottom: 8px; }
+.levels3d { display: flex; flex-direction: column; gap: 12px; width: min(360px, 86vw); }
+.controls3d {
+  margin-top: 14px; max-width: min(560px, 92vw); background: var(--panel); color: #C9BFE0;
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 12px 18px; font-size: 13px; line-height: 1.7;
+}
+.controls3d b { color: #fff; }
+
+.btn3d {
+  cursor: pointer; border: none; border-radius: 16px; padding: 15px 20px; font-size: 19px; font-weight: 800;
+  color: #3A2233; background: linear-gradient(180deg, #FFE29A, var(--accent));
+  box-shadow: 0 5px 0 #C89320, 0 8px 16px rgba(0,0,0,0.22); transition: transform .08s, box-shadow .08s;
+  font-family: inherit; text-decoration: none; display: inline-block;
+}
+.btn3d:active { transform: translateY(4px); box-shadow: 0 1px 0 #C89320; }
+.btn3d-small { font-size: 14px; padding: 10px 16px; margin-top: 6px; background: linear-gradient(180deg,#efe7ff,#cdbff0); box-shadow: 0 4px 0 #9a86c8; color: #2B2438; }
+.btn-accent3d { background: linear-gradient(180deg, #7EF0A8, var(--green)); box-shadow: 0 5px 0 #1F9E4E; color: #10331f; }
+
+.panel3d {
+  background: var(--panel); border: 1px solid rgba(255,255,255,0.15); border-radius: 22px; padding: 26px;
+  min-width: min(340px, 90vw); display: flex; flex-direction: column; gap: 12px; align-items: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.panel-win3d { border: 2px solid var(--green); }
+.panel-title3d { color: #fff; font-size: 28px; font-weight: 900; }
+.win-level3d { color: var(--accent); font-weight: 800; font-size: 18px; }
+.stars3d { display: flex; gap: 8px; font-size: 44px; }
+.star3d { color: #5b5170; }
+.star3d.on { color: var(--accent); text-shadow: 0 0 16px rgba(255,201,77,0.8); }
+.winstats3d { display: flex; flex-direction: column; gap: 4px; color: #C9BFE0; font-weight: 600; font-size: 15px; }
+.btnrow3d { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+.panel3d .btn3d { min-width: 150px; }
