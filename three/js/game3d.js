@@ -525,6 +525,7 @@
     ui.hint.textContent = world.data.hint || '';
     ui.hint.style.display = 'block';
     setTimeout(function () { ui.hint.style.display = 'none'; }, 4500);
+    if (window.BR && BR.music && BR.music.enabled()) BR.music.start();
     updateHUD();
   }
 
@@ -652,6 +653,13 @@
     var ctr = el('div', 'controls3d');
     ctr.innerHTML = '<b>Steuerung:</b> WASD / Pfeile — Laufen &nbsp;·&nbsp; Leertaste — Springen &nbsp;·&nbsp; Maus ziehen / Q E — Kamera &nbsp;·&nbsp; Mausrad — Zoom &nbsp;·&nbsp; R — Neustart';
     ui.menu.appendChild(ctr);
+    // Musik-Umschalter
+    var musicBtn = el('button', 'btn3d btn3d-small', '');
+    function updMusic() { musicBtn.textContent = (window.BR && BR.music && BR.music.enabled()) ? '🎵 Musik: An' : '🔇 Musik: Aus'; }
+    musicBtn.onclick = function () { if (window.BR && BR.music) { if (window.BR3D.audioUnlock) window.BR3D.audioUnlock(); BR.music.toggle(); updMusic(); } };
+    updMusic();
+    ui.menu.appendChild(musicBtn);
+
     var back2d = el('a', 'btn3d btn3d-small', '← Zur 2D-Version');
     back2d.href = '../index.html';
     ui.menu.appendChild(back2d);

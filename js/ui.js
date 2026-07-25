@@ -46,9 +46,11 @@
     var foot = el('div', 'menu-foot');
     this.muteBtn = el('button', 'btn btn-small', '🔊 Ton an');
     this.muteBtn.onclick = function () { self.onAction('toggleMute'); };
+    this.musicBtn = el('button', 'btn btn-small', '🎵 Musik an');
+    this.musicBtn.onclick = function () { self.onAction('toggleMusic'); };
     var help = el('button', 'btn btn-small', '❔ Steuerung');
     help.onclick = function () { self._toggleHelp(); };
-    foot.appendChild(this.muteBtn); foot.appendChild(help);
+    foot.appendChild(this.muteBtn); foot.appendChild(this.musicBtn); foot.appendChild(help);
     this.menu.appendChild(foot);
 
     this.helpBox = el('div', 'help-box hidden');
@@ -172,6 +174,9 @@
 
   UI.prototype.setMuted = function (muted) {
     this.muteBtn.textContent = muted ? '🔇 Ton aus' : '🔊 Ton an';
+  };
+  UI.prototype.setMusic = function (on) {
+    this.musicBtn.textContent = on ? '🎵 Musik an' : '🔇 Musik aus';
   };
 
   // --- Touch-Controls ---

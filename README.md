@@ -36,6 +36,13 @@ Bewegung, Third-Person-Kamera und der gleichen bunten Graswelt in 3D:
 - 3 Level mit schwebenden Inseln, Sprungpilzen, beweglichen Plattformen, Edelsteinen und Ziel-Portal
 - Gebaut mit **Three.js** (lokal eingebunden, läuft offline)
 
+## 🎵 Musik
+
+Prozedural erzeugte **Chiptune-Hintergrundmusik** als Hommage an die alte
+Turrican-Ära (Chris-Hülsbeck-Stil): treibende Arpeggios, heroische Lead-Melodie,
+fetter Bass und Drums – komplett per WebAudio berechnet (keine Sound-Dateien,
+läuft offline). Umschaltbar über den **🎵-Button** im Menü (2D & 3D).
+
 ## Modi (2D)
 
 | Modus | Beschreibung |

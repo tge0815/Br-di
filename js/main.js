@@ -15,8 +15,11 @@
     var particles = new BR.Particles();
     var audio = BR.audio;
 
-    // Audio-Unlock beim ersten Input
-    input.onFirstInput = function () { audio.unlock(); };
+    // Audio-Unlock beim ersten Input (+ Musik starten, falls aktiviert)
+    input.onFirstInput = function () {
+      audio.unlock();
+      if (BR.music && BR.music.enabled()) BR.music.start();
+    };
 
     // Mute aus Save
     audio.setMuted(!!BR.save.getSetting('muted'));
@@ -30,6 +33,7 @@
       onAction: function (kind, payload) { onAction(kind, payload); }
     });
     ui.setMuted(audio.muted);
+    if (BR.music) ui.setMusic(BR.music.enabled());
     ui.enableTouch(input);
 
     // Touch-Controls automatisch bei Touch-Geräten
@@ -322,6 +326,9 @@
         case 'next': nextLevel(); break;
         case 'toggleMute':
           audio.setMuted(!audio.muted); BR.save.setSetting('muted', audio.muted); ui.setMuted(audio.muted);
+          break;
+        case 'toggleMusic':
+          if (BR.music) { audio.unlock(); var on = BR.music.toggle(); ui.setMusic(on); }
           break;
       }
     }

@@ -14,11 +14,13 @@
 
   <script src="js/three.min.js"></script>
   <script src="../js/audio.js"></script>
+  <script src="../js/save.js"></script>
+  <script src="../js/music.js"></script>
   <script>
-    // Audio-Brücke: nutzt die prozedurale SFX-Engine der 2D-Version
+    // Audio-Brücke: nutzt die prozedurale SFX- & Musik-Engine der 2D-Version
     window.BR3D = window.BR3D || {};
     window.BR3D.sfx = function (n) { if (window.BR && BR.audio) BR.audio.sfx(n); };
-    window.BR3D.audioUnlock = function () { if (window.BR && BR.audio) BR.audio.unlock(); };
+    window.BR3D.audioUnlock = function () { if (window.BR && BR.audio) { BR.audio.unlock(); if (BR.music && BR.music.enabled()) BR.music.start(); } };
   </script>
   <script src="js/levels3d.js"></script>
   <script src="js/game3d.js"></script>
